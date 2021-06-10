@@ -6,6 +6,7 @@ public class MyLinkedList {
         linkedList1.append(56);
         linkedList1.append(70);
         linkedList1.insertAfter(linkedList1.head, 30);
+        linkedList1.pop();
         linkedList1.printList();
     }
 }
@@ -50,13 +51,22 @@ public class MyLinkedList {
         public void insertAfter(Node prevNode, int data) {
             if (prevNode == null) {
                     System.out.println("previous node should not be null");
-             return;
+                    return;
          }
          Node newNode = new Node(data);
          newNode.next = prevNode.next;
          prevNode.next = newNode;
 
         }
+
+        // Pop method to pop head
+        public void pop(){
+            if (head == null){
+                 System.out.println("Should not be null");
+                 return;
+         }
+            head = head.next;
+                }
 
      // Method To print Linked List
         public void printList(){
