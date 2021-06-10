@@ -16,16 +16,19 @@ public class MyLinkedList {
 
             int data;
             Node next;
+
             Node(int data){
                 this.data = data;
                 next = null;
             }
         }
+        //Method To Add elements To linked List
         public void add (int data){
             Node newNode = new Node(data);
             newNode.next=head;
             head=newNode;
         }
+        // Method To print Linked List
         public void printList(){
             System.out.println("LinkedList:");
             Node temp=head;
