@@ -9,7 +9,8 @@ public class MyLinkedList {
         linkedList1.insertAfter(linkedList1.head, 30);
         //linkedList1.pop();
         //linkedList1.popLast();
-        linkedList1.searchElement(30);
+        linkedList1.searchElement(30); //calling method to search element
+        linkedList1.insertAfter(linkedList1.head.next,40); // Calling Method To Insert After 40
         linkedList1.printList();
     }
 }
