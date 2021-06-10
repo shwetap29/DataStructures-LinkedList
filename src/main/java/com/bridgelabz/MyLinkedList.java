@@ -5,7 +5,7 @@ public class MyLinkedList {
         LinkedList linkedList1= new LinkedList();
         linkedList1.append(56);
         linkedList1.append(70);
-        linkedList1.append(30);
+        linkedList1.insertAfter(linkedList1.head, 30);
         linkedList1.printList();
     }
 }
