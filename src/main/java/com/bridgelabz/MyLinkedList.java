@@ -6,7 +6,8 @@ public class MyLinkedList {
         linkedList1.append(56);
         linkedList1.append(70);
         linkedList1.insertAfter(linkedList1.head, 30);
-        linkedList1.pop();
+        //linkedList1.pop();
+        linkedList1.popLast();
         linkedList1.printList();
     }
 }
@@ -66,7 +67,20 @@ public class MyLinkedList {
                  return;
          }
             head = head.next;
+     }
+
+     public void popLast() {
+            if (head == null)
+                System.out.println("List is Empty");
+                Node last = head;
+                Node temp = null;
+                while (last.next != null){
+                        temp = last;
+                        last = last.next;
                 }
+                temp.next = null;
+                last.next = temp.next;
+     }
 
      // Method To print Linked List
         public void printList(){
