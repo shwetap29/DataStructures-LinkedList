@@ -12,6 +12,9 @@ public class MyLinkedList {
         linkedList1.searchElement(30); //calling method to search element
         linkedList1.insertAfter(linkedList1.head.next,40); // Calling Method To Insert After 40
         linkedList1.printList();
+        linkedList1.deleteNode(40);
+        System.out.println("\n linkedlist after deleting node");
+        linkedList1.printList();
     }
 }
 
@@ -107,6 +110,26 @@ public class MyLinkedList {
             else
                 System.out.println("Element is not present in the list");
         }
+
+        // deleting a node given a key
+            public void deleteNode(int key){
+         Node temp = head, prev = null;
+         // if head node itself is a key to be deleted
+                if(temp != null && temp.data == key) {
+                    head = temp.next;
+                    return;
+                }
+         // using while loop to search for a key to be deleted
+                while (temp != null &&temp.data !=key){
+                    prev = temp;
+                    temp = temp.next;
+                }
+                //If Key is Not present return
+                    if(temp == null)
+                        return;
+                    //for deleting a node
+                        prev.next = temp.next;
+            }
 
 
      // Method To print Linked List
