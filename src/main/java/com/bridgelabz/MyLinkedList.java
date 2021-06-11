@@ -15,13 +15,16 @@ public class MyLinkedList {
         linkedList1.deleteNode(40);
         System.out.println("\n linkedlist after deleting node");
         linkedList1.printList();
+        System.out.println("\n linkedlist after sorting in ascending order");
+        linkedList1.sortList(); // calling method to sort elements
+        linkedList1.printList();
     }
 }
 
  class LinkedList{
-    Node head;
+        Node head;
 
-    class Node {
+            class Node {
 
             int data;
             Node next;
@@ -77,7 +80,7 @@ public class MyLinkedList {
             head = head.next;
      }
         // Method To delete Last Element
-     public void popLast() {
+        public void popLast() {
             if (head == null)
                 System.out.println("List is Empty");
                 Node last = head;
@@ -98,7 +101,7 @@ public class MyLinkedList {
             int flag=0;
             while (n != null)
             {
-                if (n.data == data){
+                if(n.data == data){
                         flag=1;
                         break;
                 }
@@ -113,24 +116,55 @@ public class MyLinkedList {
 
         // deleting a node given a key
             public void deleteNode(int key){
-         Node temp = head, prev = null;
-         // if head node itself is a key to be deleted
+                Node temp = head, prev = null;
+            // if head node itself is a key to be deleted
                 if(temp != null && temp.data == key) {
                     head = temp.next;
                     return;
                 }
-         // using while loop to search for a key to be deleted
-                while (temp != null &&temp.data !=key){
+                // using while loop to search for a key to be deleted
+                while (temp != null &&temp.data != key) {
                     prev = temp;
                     temp = temp.next;
                 }
-                //If Key is Not present return
-                    if(temp == null)
-                        return;
-                    //for deleting a node
-                        prev.next = temp.next;
+                //if key is not present return
+                if (temp == null)
+                    return;
+                // for deleting a node
+                prev.next = temp.next;
             }
 
+           //using bubble sort to sort linked list in ascending order
+                public void sortList()
+                {
+                    //Node current will point to head
+                    Node current = head, index = null;
+                    int temp;
+
+                    if (head == null){
+                        return;
+                    }
+                    else{
+                        while (current != null){
+                            //Node index will point to node next to
+                            // current
+                            index = current.next;
+                            while (index != null){
+                                // if current node's  data is greater
+                                // than index's node , swap the data
+                                // between them
+                                if(current.data > index.data){
+                                    temp = current.data;
+                                    current.data = index.data;
+                                    index.data = temp;
+                                }
+
+                                index = index.next;
+                            }
+                            current = current.next;
+                        }
+                    }
+                }
 
      // Method To print Linked List
         public void printList(){
